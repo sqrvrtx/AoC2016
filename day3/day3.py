@@ -41,6 +41,19 @@ with open('data.txt', 'r') as f:
 # Part 1
 f1 = lambda i: sorted([int(x) for x in i])
 f2 = lambda x: (x[0]+x[1])>x[2]
+
 print sum([f2(f1(x)) for x in ls])
 
 # Part 2
+nls = []
+#for x in ls[:3]:
+column3 = lambda x: zip(x[0],x[1],x[2])
+
+x=0
+nls.extend(zip(ls[x],ls[x+1],ls[x+2]))
+
+for x in range(1, len(ls)):
+    if x%3 == 0:
+        nls.extend(zip(ls[x],ls[x+1],ls[x+2]))
+
+print sum([f2(f1(x)) for x in nls]) # 1836
