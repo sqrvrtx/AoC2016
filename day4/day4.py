@@ -26,9 +26,11 @@ The first half of this puzzle is complete! It provides one gold star: *
 
 With all the decoy data out of the way, it's time to decrypt this list and get moving.
 
-The room names are encrypted by a state-of-the-art shift cipher, which is nearly unbreakable without the right software. However, the information kiosk designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.
+The room names are encrypted by a state-of-the-art shift cipher, which is nearly unbreakable without the right software.
+However, the information kiosk designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.
 
-To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's sector ID. A becomes B, B becomes C, Z becomes A, and so on. Dashes become spaces.
+To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's sector ID.
+A becomes B, B becomes C, Z becomes A, and so on. Dashes become spaces.
 
 For example, the real name for qzmt-zixmtkozy-ivhz-343 is very encrypted name.
 
@@ -62,3 +64,29 @@ for line in ls:
 
 # 245102
 print real_num
+
+# part 2
+assert calc('qzmt-zixmtkozy-ivhz-343') == 'very encrypted name'
+
+
+for word in s.split('-'):
+    for letter in word:
+        val = ord(letter) - 97
+        forward_val = val +
+        new_val_int = foward_val%26 + 97
+
+
+8
+>>> 8+343
+351
+>>> 351%26
+13
+>>> 351%25
+1
+>>> 351%27
+0
+>>> chr(13)
+'\r'
+>>> 13+97
+110
+>>> chr(110)
