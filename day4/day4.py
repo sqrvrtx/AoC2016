@@ -66,27 +66,24 @@ for line in ls:
 print real_num
 
 # part 2
-assert calc('qzmt-zixmtkozy-ivhz-343') == 'very encrypted name'
+def calc(txt, forward_factor):
+    retn_words = ""
+    word_list = txt.split('-')
+    for word in word_list:
+        new_word = ''
+        for letter in word:
+            forward_val = (ord(letter) - 97) + int(forward_factor)
+            new_word +=  chr(forward_val%26 + 97)
+
+        retn_words += new_word + " "
+
+    return retn_words.strip()
 
 
-for word in s.split('-'):
-    for letter in word:
-        val = ord(letter) - 97
-        forward_val = val +
-        new_val_int = foward_val%26 + 97
+assert calc('qzmt-zixmtkozy-ivhz', '343') == 'very encrypted name'
 
 
-8
->>> 8+343
-351
->>> 351%26
-13
->>> 351%25
-1
->>> 351%27
-0
->>> chr(13)
-'\r'
->>> 13+97
-110
->>> chr(110)
+for line in ls:
+    txt, num, grp = re.search(r'(.*)-(\d+)\[(.*)\]', line).groups()
+    if calc(txt, num) == 'northpole object storage':
+        print 'northpole object storage', num
