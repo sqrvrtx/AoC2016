@@ -63,22 +63,46 @@ with open('input.txt', 'r') as f:
 
 print process_result(ls)
 
+# Part ii
 tc10 = 'aba[bab]xyz' # supports SSL (aba outside square brackets with corresponding bab within square brackets).
 tc11 = 'xyx[xyx]xyx'  # does not support SSL (xyx, but no corresponding yxy).
 tc12 = 'aaa[kek]eke' # supports SSL (eke in supernet with corresponding kek in hypernet; the aaa sequence is not related, because the interior character must be different).
 tc13 = 'zazbz[bzb]cdb' # supports SSL (zaz has no corresponding aza, but zbz has a corresponding bzb, even though zaz and zbz overlap).
-f = lambda x: x[1]+x[0]+x[1]
+tc14 = 'zaz[aza]bzb[zbz]xxx'
+tc15 = 'zaz[aza]bzb[zbx]xxx'
 
-def process_result2(ls):
-    count = 0
-    result = []
-    for z in ls:
+# 'zazbz' -> ['zaz', 'azb', 'zbz']
+split_int_3 = lambda x: [(x[i:i+3]) for i in range(len(x)-2)]
 
-        res =  re.split(r'(\[\w+\])', z )
+# [['zaz', 'azb', 'zbz'], ['cdb']] -> ['zaz', 'azb', 'zbz', 'cdb']
+flatten = lambda x: reduce(lambda a,b: a+b, x)
 
-        # need to loop every 3
-        if any(set([f(res[i:i+2]) for i in range(len(res)-2)]) & set(filter(lambda x: x.startswith('['), res))):
-            count+=1
-    return count
-ls = [tc10, tc11, tc12, tc13]
-print process_result2(ls)
+def get_abba_allowed_strings(text):
+    return re.split(r'\[\w+\]', text)
+
+
+def get_abba_disallowed_strings(text):
+    return [x.replace('[', '').replace(']', '') for x in re.findall(r'\[\w+\]', text)]
+
+
+def count_ssl_addresses(data):
+    return sum(supports_ssl(x) for x in data)
+
+
+def supports_ssl(text):
+    strings1 = get_abba_allowed_strings(text)
+    strings2 = get_abba_disallowed_strings(text)
+
+    nstrings1 =[split_int_3(x) for x in strings1]
+    nstrings1 = flatten(nstrings1)
+
+    abas2 = filter(lambda x: (x[0] == x[2]) and (x[0] != x[1]), nstrings1)
+    babs2 = map(lambda x: x[1]+x[0]+x[1], abas2)
+
+    return any(bab in x for bab in babs2 for x in strings2)
+
+
+test_cases = [tc10, tc11, tc12, tc13, tc14]
+
+print count_ssl_addresses(test_cases)
+print count_ssl_addresses(ls) # 258
