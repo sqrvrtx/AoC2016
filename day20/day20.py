@@ -60,4 +60,4 @@ def main(my_range, ls, first_result=True):
 print main(4294967296, lines)  # 31053880
 
 # Part 2
-print main(4294967296, lines, first_result=False)
+print main(4294967296, lines, first_result=False)  # 118
