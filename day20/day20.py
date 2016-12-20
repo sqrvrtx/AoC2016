@@ -56,6 +56,7 @@ def main(my_range, ls, first_result=True):
         count += 1
 
     return occurs
+    
 # Part 1
 print main(4294967296, lines)  # 31053880
 
