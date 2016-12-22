@@ -53,7 +53,7 @@ import re
 
 from collections import Counter
 
-with open('data.txt', 'r') as f:
+with open('4.in', 'r') as f:
     ls = f.read().splitlines()
 
 real_num = 0

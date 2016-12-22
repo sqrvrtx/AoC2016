@@ -107,7 +107,7 @@ assert calc(most_common=True) == 'easter'
 assert calc(most_common=False) == 'advent'
 
 
-with open('input.txt', 'r') as f:
+with open('6.in', 'r') as f:
     ls = [x for x in f.read().splitlines()]
 
 cols = zip(*ls)

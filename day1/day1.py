@@ -58,7 +58,7 @@ ts1 = "R2, L3"
 ts2 = "R2, R2, R2"
 ts3 = "R5, L5, R5, R3"
 
-with open('data.txt', 'r') as f:
+with open('1.in', 'r') as f:
     input_s = f.read()
 
 # Part 1: 236

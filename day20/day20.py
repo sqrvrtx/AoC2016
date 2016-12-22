@@ -29,7 +29,7 @@ input), what is the lowest-valued IP that is not blocked?
 How many IPs are allowed by the blacklist?
 """
 
-with open('input.txt', 'r') as f:
+with open('20.in', 'r') as f:
     lines = f.read().splitlines()
 
 
@@ -56,7 +56,7 @@ def main(my_range, ls, first_result=True):
         count += 1
 
     return occurs
-    
+
 # Part 1
 print main(4294967296, lines)  # 31053880
 

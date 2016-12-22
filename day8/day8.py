@@ -135,7 +135,7 @@ commands = [
 
 print count_pixels(commands, height, width)
 
-with open('input.txt', 'r') as f:
+with open('8.in', 'r') as f:
     commands1 = f.read().splitlines()
 
 # For Real

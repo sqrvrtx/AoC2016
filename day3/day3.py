@@ -47,7 +47,7 @@ At this point, you should return to your advent calendar and try another puzzle.
 If you still want to see it, you can get your puzzle input.
 """
 
-with open('data.txt', 'r') as f:
+with open('3.in', 'r') as f:
     ls = [x.split() for x in f.read().splitlines()]
 
 # Part 1

@@ -113,7 +113,7 @@ test_input = [
 ]
 print process(test_input) # 42
 
-with open('input.txt', 'r') as f:
+with open('12.in', 'r') as f:
     instructions = f.read().splitlines()
     print process(instructions)  # 318077
     print process(instructions, initial={'c': 1})  # 9227731

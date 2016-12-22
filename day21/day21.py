@@ -85,7 +85,7 @@ def rot_left(l,n):
 
 
 def f(p):
-  f = open('input.txt')
+  f = open('21.in')
   l = list(p)
   for line in f:
     sp = line.split()

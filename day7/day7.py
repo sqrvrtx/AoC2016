@@ -64,7 +64,7 @@ def process_result(ls):
 ls = [tc5, tc6, tc7, tc8]
 print process_result(ls)
 
-with open('input.txt', 'r') as f:
+with open('7.in', 'r') as f:
     ls = f.read().splitlines()
 
 print process_result(ls)
